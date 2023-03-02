@@ -5,20 +5,17 @@ definePageMeta({
   description: "Login to your account",
   middleware: ["already-auth"],
 });
-const client = useSupabaseAuthClient();
-const user = useSupabaseUser();
-const appDomain = useRuntimeConfig().public.appDomain;
 
-async function signInWithGoogle() {
-  await client.auth.signInWithOAuth({ provider: "google", options: { redirectTo: appDomain } });
-  useRouter().push('/')
+const login = ref("");
+const password = ref("");
+
+const loading = ref(false);
+
+async function signin() {
+  loading.value = true;
+  await useLogin(login.value, password.value);
+  loading.value = false;
 }
-
-watch(user, (user) => {
-  if (user) {
-    useRouter().push("/");
-  }
-});
 </script>
 
 <template>
@@ -28,14 +25,42 @@ watch(user, (user) => {
       <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-primary">Sign in to your account</h2>
     </div>
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-      <button
-        @click="signInWithGoogle"
-        class="inline-flex w-full justify-center rounded-md bg-secondary py-2 px-4 text-primary shadow-sm items-center gap-x-4 border border-muted hover:border-accent transition duration-300 ease-in-out"
-      >
-        <i class="fab fa-google"></i>
-        <span>Sign in with Google</span>
-      </button>
-      <NuxtLink to="/auth/signup" class="btn-secondary mt-6"> Don't have an account ? Sign up </NuxtLink>
+      <form @submit.prevent="signin" class="space-y-4">
+        <div class="-space-y-px">
+          <input
+            id="login"
+            name="login"
+            autocomplete="email"
+            required
+            :placeholder="$t('login.login')"
+            class="w-full input rounded-t-md ring-1 ring-transparent ring-inset focus:ring-accent"
+            v-model="login"
+            :disabled="loading"
+          />
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required
+            :placeholder="$t('login.password')"
+            class="w-full input rounded-b-md ring-1 ring-transparent ring-inset focus:ring-accent"
+            v-model="password"
+            :disabled="loading"
+          />
+        </div>
+        <div class="flex items-center justify-end">
+          <div class="text-sm">
+            <NuxtLink to="/password/forgot" class="font-medium text-accent hover:text-accent-hover">
+              {{ $t("login.forgot_password") }}
+            </NuxtLink>
+          </div>
+        </div>
+        <ButtonPrimary :full-width="true" :pending="loading" :text="$t('login.signin')" type="submit" />
+      </form>
+      <NuxtLink to="/auth/signup" class="btn-secondary w-full mt-6">
+        {{$t("login.dont_have_an_account") }}
+      </NuxtLink>
     </div>
   </div>
 </template>

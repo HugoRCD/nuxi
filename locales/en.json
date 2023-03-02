@@ -27,11 +27,33 @@
     "profile": "Profile",
     "settings": "Settings"
   },
+  "login": {
+    "signin_to_your_account": "Sign in to your account",
+    "login": "Login",
+    "password": "Password",
+    "forgot_password": "Forgot password ?",
+    "signin": "Sign in",
+    "dont_have_an_account": "Don't have an account? Sign up",
+    "you_have_successfully_registered": "You have successfully registered",
+    "welcome_back": "Welcome back"
+  },
+  "signup": {
+    "signup_to_your_account": "Sign up to your account",
+    "username": "Username",
+    "firstname": "Firstname",
+    "lastname": "Lastname",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "signup": "Sign up",
+    "already_have_an_account": "Already have an account ? Sign in"
+  },
   "profile": {
     "title": "Profil",
     "firstname": "Firstname",
     "lastname": "Lastname",
     "delete_account": "Delete account",
-    "delete_my_account": "Delete my account"
+    "delete_my_account": "Delete my account",
+    "logout": "See you soon"
   }
 }

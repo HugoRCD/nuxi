@@ -2,6 +2,7 @@
 definePageMeta({
   name: "Films",
   title: "Films",
+  middleware: ["auth"],
 });
 </script>
 

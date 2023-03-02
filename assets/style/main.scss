@@ -15,9 +15,10 @@ html,body, #__nuxt, #__layout{
   .input {
     @apply bg-secondary;
     @apply text-primary placeholder:text-placeholder;
-    @apply border-sm rounded-md border-primary hover:border-primary-hover;
-    @apply focus:outline-none focus:ring-2 focus:ring-accent;
-    @apply w-full px-4 py-2;
+    @apply border-sm border-primary hover:border-primary-hover;
+    @apply focus:outline-none;
+    @apply px-4 py-2;
+    @apply transition-colors duration-300 ease-in-out;
   }
 
   .btn-primary {
