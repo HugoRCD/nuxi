@@ -1,7 +1,42 @@
-import prisma from "~/server/database/client";
+import prisma, { formatUser } from "~/server/database/client";
 import { User } from "@prisma/client";
 import bcrypt from "bcrypt";
-import { getUserById } from "~/server/app/userService";
+import { getUserById, getUserByLogin } from "~/server/app/userService";
+import jwt from "jsonwebtoken";
+
+async function setAuthToken(userId: number) {
+  const user = (await getUserById(userId)) as User;
+  const authToken = jwt.sign(
+    {
+      id: user.id,
+      role: user.role,
+      username: user.username,
+      email: user.email,
+    },
+    useRuntimeConfig().private.authSecret,
+    { expiresIn: useRuntimeConfig().private.authExpiration },
+  );
+  const updatedUser = await prisma.user.update({
+    where: {
+      id: userId,
+    },
+    data: {
+      authToken,
+    },
+  });
+  return formatUser(updatedUser);
+}
+
+export async function login(login: string, password: string) {
+  const user = await getUserByLogin(login);
+  if (!user) throw createError({ statusCode: 404, message: "user_not_found" });
+  const isPasswordCorrect = await bcrypt.compare(password, user.password);
+  if (!isPasswordCorrect) {
+    throw createError({ statusCode: 401, message: "invalid_password" });
+  }
+  await setAuthToken(user.id);
+  return formatUser(user);
+}
 
 export async function generateResetPasswordToken(userId: number) {
   const token = Math.random().toString(36).substr(2);

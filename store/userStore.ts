@@ -42,30 +42,5 @@ export const useUserStore = defineStore("user", {
     logout() {
       this.$state = defaultUserState;
     },
-    async deleteUser() {
-      if (confirm("Are you sure you want to delete your account?")) {
-        if (this.user) {
-          await useFetch("/api/user/" + this.user.id, {
-            method: "DELETE",
-          });
-          useRouter().push("/");
-          this.user = null;
-        }
-      }
-    },
-    async updateUser(toast = true) {
-      if (confirm("Are you sure you want to update your profile?")) {
-        if (this.user) {
-          const { data: updatedUser } = await useFetch<User>("/api/user/" + this.user.id, {
-            method: "PUT",
-            body: this.user,
-          });
-          this.user = updatedUser.value;
-          if (toast) {
-            useSuccessToast("Profile updated successfully");
-          }
-        }
-      }
-    },
   },
 });

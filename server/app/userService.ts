@@ -59,3 +59,25 @@ export async function getUserById(userId: number) {
   }
   return formatUser(user);
 }
+
+export async function getUserByLogin(login: string) {
+  const user = await prisma.user.findFirst({
+    where: {
+      OR: [
+        {
+          username: login,
+        },
+        {
+          email: login,
+        },
+      ],
+    },
+  });
+  if (!user) {
+    throw createError({
+      statusCode: 404,
+      statusMessage: "user_not_found",
+    });
+  }
+  return user;
+}

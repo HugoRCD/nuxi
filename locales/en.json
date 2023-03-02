@@ -27,6 +27,16 @@
     "profile": "Profile",
     "settings": "Settings"
   },
+  "error": {
+    "404": "Page not found",
+    "404_message": "The page you are looking for does not exist.",
+    "500": "Internal server error",
+    "500_message": "An error has occurred on the server, please try again later.",
+    "user_not_found": "User not found",
+    "invalid_password": "Invalid password",
+    "user_already_exists": "User already exists",
+    "error": "An error has occurred"
+  },
   "login": {
     "signin_to_your_account": "Sign in to your account",
     "login": "Login",
@@ -35,8 +45,7 @@
     "signin": "Sign in",
     "dont_have_an_account": "Don't have an account? Sign up",
     "you_have_successfully_registered": "You have successfully registered",
-    "welcome_back": "Welcome back",
-    "invalid_credentials": "Your credentials are invalid"
+    "welcome_back": "Welcome back"
   },
   "signup": {
     "signup_to_your_account": "Sign up to your account",
@@ -47,8 +56,7 @@
     "password": "Password",
     "confirm_password": "Confirm Password",
     "signup": "Sign up",
-    "already_have_an_account": "Already have an account ? Sign in",
-    "error": "An error has occurred during the registration"
+    "already_have_an_account": "Already have an account ? Sign in"
   },
   "profile": {
     "title": "Profil",

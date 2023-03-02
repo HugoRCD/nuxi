@@ -34,8 +34,8 @@ export default defineNuxtConfig({
     mailerUser: process.env.MAILER_USER,
     mailerPass: process.env.MAILER_PASSWORD,
     private: {
-      stripeSecretKey: process.env.STRIPE_SECRET_KEY,
       authSecret: process.env.AUTH_TOKEN_SECRET,
+      authExpiration: process.env.AUTH_TOKEN_EXPIRATION,
     },
     public: {
       appDomain: process.env.APP_URL,

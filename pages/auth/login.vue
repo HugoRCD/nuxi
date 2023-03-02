@@ -15,20 +15,26 @@ const password = ref("");
 
 const loading = ref(false);
 
-async function signin(login: string, password: string) {
+async function signin() {
   loading.value = true;
-  const { data } = await useFetch<User>("/api/auth/login", {
+  const { data, error } = await useFetch<User>("/api/auth/login", {
     method: "POST",
     body: {
-      login: login,
-      password: password,
+      login: login.value,
+      password: password.value,
     },
   });
   if (data.value) {
     console.log(data.value);
-    useSuccessToast(t("login.welcome_back"));
+    useSuccessToast(t("login.welcome_back") + " " + data.value.username);
+    useUserStore().setUser(data.value);
+    useRouter().push("/");
+  } else if (error.value?.statusMessage === "user_not_found") {
+    useErrorToast(t("error.user_not_found"));
+  } else if (error.value?.statusMessage === "invalid_password") {
+    useErrorToast(t("error.invalid_password"));
   } else {
-    useErrorToast(t("login.invalid_credentials"));
+    useErrorToast(t("error.error"));
   }
   loading.value = false;
 }

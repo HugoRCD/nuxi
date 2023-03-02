@@ -8,6 +8,7 @@ export interface User {
   cover: string;
   role: number;
   isVerified: boolean;
+  isValidated: boolean;
 }
 
 export interface createUserInput {
@@ -25,4 +26,5 @@ export interface updateUserInput {
   avatar?: string;
   cover?: string;
   role?: number;
+  isVerified?: boolean;
 }

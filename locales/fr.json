@@ -27,6 +27,15 @@
     "profile": "Profil",
     "settings": "Paramètres"
   },
+  "error": {
+    "404": "Cette page n'existe pas",
+    "404_message": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "500": "Erreur interne du serveur",
+    "user_not_found": "Utilisateur introuvable",
+    "invalid_password": "Mot de passe incorrect",
+    "user_already_exists": "Cet utilisateur existe déjà",
+    "error": "Une erreur est survenue"
+  },
   "login": {
     "signin_to_your_account": "Connectez-vous à votre compte",
     "login": "Identifiant",
@@ -34,8 +43,7 @@
     "forgot_password": "Mot de passe oublié ?",
     "signin": "Connexion",
     "dont_have_an_account": "Vous n'avez pas de compte ? Inscrivez-vous",
-    "welcome_back": "Bienvenue",
-    "invalid_credentials": "Identifiant ou mot de passe incorrect"
+    "welcome_back": "Bienvenue"
   },
   "signup": {
     "signup_to_your_account": "Inscrivez-vous à votre compte",
@@ -47,9 +55,7 @@
     "confirm_password": "Confirmer le mot de passe",
     "signup": "S'inscrire",
     "already_have_an_account": "Vous avez déjà un compte ? Connectez-vous",
-    "you_have_successfully_registered": "Votre compte a été créé avec succès",
-    "error": "Une erreur est survenue lors de la création de votre compte",
-    "user_already_exists": "Un utilisateur avec cet identifiant existe déjà"
+    "you_have_successfully_registered": "Votre compte a été créé avec succès"
   },
   "profile": {
     "title": "Profil",
