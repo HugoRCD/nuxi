@@ -6,12 +6,19 @@ definePageMeta({
   middleware: ["already-auth"],
 });
 const client = useSupabaseAuthClient();
+const user = useSupabaseUser();
 const appDomain = useRuntimeConfig().public.appDomain;
 
 async function signInWithGoogle() {
   await client.auth.signInWithOAuth({ provider: "google", options: { redirectTo: appDomain } });
   useRouter().push('/')
 }
+
+watch(user, (user) => {
+  if (user) {
+    useRouter().push("/");
+  }
+});
 </script>
 
 <template>
