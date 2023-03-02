@@ -10,7 +10,6 @@ export async function useUser(): Promise<User | null> {
       method: "GET",
       headers: cookieHeaders as HeadersInit,
     });
-    console.log("useUser", data.value);
     if (!data.value) {
       return null;
     }

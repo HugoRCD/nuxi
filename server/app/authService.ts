@@ -5,7 +5,7 @@ import { getUserById, getUserByLogin } from "~/server/app/userService";
 import jwt from "jsonwebtoken";
 
 async function setAuthToken(userId: number) {
-  const user = (await getUserById(userId)) as User;
+  const user = await getUserById(userId);
   const authToken = jwt.sign(
     {
       id: user.id,
@@ -34,18 +34,15 @@ export async function login(login: string, password: string) {
   if (!isPasswordCorrect) {
     throw createError({ statusCode: 401, message: "invalid_password" });
   }
-  await setAuthToken(user.id);
-  return formatUser(user);
+  return await setAuthToken(user.id);
 }
 
 export async function getUserByAuthToken(authToken: string) {
-  console.log("getUserByAuthToken", authToken);
   const user = await prisma.user.findUnique({
     where: {
       authToken,
-    },
+    }
   });
-  console.log("Found user:", user);
   if (!user) return null;
   return formatUser(user);
 }
