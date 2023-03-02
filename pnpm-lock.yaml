@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@headlessui/vue': ^1.7.7
   '@heroicons/vue': ^2.0.13
   '@nuxt/image-edge': 1.0.0-27840416.dc1ed65
   '@nuxtjs/eslint-config-typescript': ^12.0.0
@@ -29,6 +30,7 @@ specifiers:
   vue-sweetalert2: ^5.0.5
 
 devDependencies:
+  '@headlessui/vue': 1.7.8
   '@heroicons/vue': 2.0.14
   '@nuxt/image-edge': 1.0.0-27840416.dc1ed65
   '@nuxtjs/eslint-config-typescript': 12.0.0_4vsywjlpuriuw3tl5oq6zy5a64
