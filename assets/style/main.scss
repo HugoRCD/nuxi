@@ -40,4 +40,11 @@ html,body, #__nuxt, #__layout{
     @apply px-4 py-2 flex justify-center;
     @apply cursor-pointer;
   }
+
+  .card {
+    @apply bg-secondary flex flex-col gap-4 mx-2 my-4 sm:mx-8 sm:my-8;
+    @apply rounded-md;
+    @apply shadow-md;
+    @apply p-4;
+  }
 }
