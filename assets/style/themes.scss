@@ -1,0 +1,24 @@
+:root {
+  --bg-primary: #0C0C0D;
+  --bg-primary-opacity: 12, 12, 13;
+  --bg-secondary: #18181B;
+  --bg-secondary-opacity: 24, 24, 27;
+  --font-color: #FFFFFF;
+
+  --font-primary: #FFFFFF;
+  --font-muted: #66646A;
+  --font-inverted: #FFFFFF;
+
+  --border-primary: #2c282e;
+  --border-primary-hover: #66646A;
+  --border-muted: #1C1822;
+
+  --accent-color: 70, 191, 239;
+  --accent-color-hover: 45, 152, 195;
+  --accent-color-faded: rgba(70, 191, 239, 0.2);
+
+  --accent: #46BFEF; // Just to see the color only the -accent-color use in the app
+  --accent-hover: #2d98c3; // Just to see the color only the -accent-color use in the app
+
+  --font-placeholder: #403D46;
+}

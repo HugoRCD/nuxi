@@ -1,0 +1,37 @@
+{
+  "global": {
+    "hello": "Hello World!",
+    "no": "No",
+    "yes": "Yes",
+    "films": "Films",
+    "film": "Film",
+    "series": "Series",
+    "serie": "Serie",
+    "actors": "Actors",
+    "actor": "Actor",
+    "directors": "Directors",
+    "director": "Director",
+    "genres": "Genres",
+    "genre": "Genre"
+  },
+  "navigation": {
+    "home": "Home",
+    "films": "Films",
+    "series": "Series",
+    "search": "Search",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "logout": "Logout",
+    "signup": "Sign up",
+    "profile": "Profile",
+    "settings": "Settings"
+  },
+  "profile": {
+    "title": "Profil",
+    "firstname": "Firstname",
+    "lastname": "Lastname",
+    "delete_account": "Delete account",
+    "delete_my_account": "Delete my account"
+  }
+}
