@@ -7,6 +7,7 @@ export default eventHandler(async (event: H3Event) => {
   const hasAuthToken = isString(authToken);
   if (!hasAuthToken) return null;
   const user = await getUserByAuthToken(authToken);
+  console.log("user", user);
   if (!user) return null;
   return user;
 });

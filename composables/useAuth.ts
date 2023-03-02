@@ -3,7 +3,6 @@ import { User } from "~/types/user";
 export async function useUser(): Promise<User | null> {
   const authCookie = useCookie("authToken").value;
   const user = useUserStore().getUser;
-  console.log("useUser", authCookie, user);
 
   if (authCookie && !user) {
     const cookieHeaders = useRequestHeaders(["cookie"]);
@@ -11,6 +10,7 @@ export async function useUser(): Promise<User | null> {
       method: "GET",
       headers: cookieHeaders as HeadersInit,
     });
+    console.log("useUser", data.value);
     if (!data.value) {
       return null;
     }

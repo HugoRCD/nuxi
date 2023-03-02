@@ -39,11 +39,13 @@ export async function login(login: string, password: string) {
 }
 
 export async function getUserByAuthToken(authToken: string) {
-  const user = await prisma.user.findFirst({
+  console.log("getUserByAuthToken", authToken);
+  const user = await prisma.user.findUnique({
     where: {
       authToken,
     },
   });
+  console.log("Found user:", user);
   if (!user) return null;
   return formatUser(user);
 }
