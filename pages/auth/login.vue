@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import LanguageSelector from "~/components/settings/LanguageSelector.vue";
+import { User } from "~/types/user";
+const { t } = useI18n();
 
 definePageMeta({
   name: "Login",
@@ -13,9 +15,21 @@ const password = ref("");
 
 const loading = ref(false);
 
-async function signin() {
+async function signin(login: string, password: string) {
   loading.value = true;
-  await useLogin(login.value, password.value);
+  const { data } = await useFetch<User>("/api/auth/login", {
+    method: "POST",
+    body: {
+      login: login,
+      password: password,
+    },
+  });
+  if (data.value) {
+    console.log(data.value);
+    useSuccessToast(t("login.welcome_back"));
+  } else {
+    useErrorToast(t("login.invalid_credentials"));
+  }
   loading.value = false;
 }
 </script>
@@ -24,18 +38,20 @@ async function signin() {
   <div class="flex flex-col justify-center py-40 px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
       <Logo :isText="false" class="flex justify-center" :size="12" />
-      <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-primary">Sign in to your account</h2>
+      <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-primary">
+        {{ $t("login.signin_to_your_account") }}
+      </h2>
     </div>
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
       <form @submit.prevent="signin" class="space-y-4">
-        <div class="-space-y-px">
+        <div class="space-y-2">
           <input
             id="login"
             name="login"
             autocomplete="email"
             required
             :placeholder="$t('login.login')"
-            class="w-full input rounded-t-md ring-1 ring-transparent ring-inset focus:ring-accent"
+            class="w-full input focus:border-accent"
             v-model="login"
             :disabled="loading"
           />
@@ -46,7 +62,7 @@ async function signin() {
             autocomplete="current-password"
             required
             :placeholder="$t('login.password')"
-            class="w-full input rounded-b-md ring-1 ring-transparent ring-inset focus:ring-accent"
+            class="w-full input focus:border-accent"
             v-model="password"
             :disabled="loading"
           />

@@ -35,7 +35,8 @@
     "signin": "Sign in",
     "dont_have_an_account": "Don't have an account? Sign up",
     "you_have_successfully_registered": "You have successfully registered",
-    "welcome_back": "Welcome back"
+    "welcome_back": "Welcome back",
+    "invalid_credentials": "Your credentials are invalid"
   },
   "signup": {
     "signup_to_your_account": "Sign up to your account",
@@ -46,7 +47,8 @@
     "password": "Password",
     "confirm_password": "Confirm Password",
     "signup": "Sign up",
-    "already_have_an_account": "Already have an account ? Sign in"
+    "already_have_an_account": "Already have an account ? Sign in",
+    "error": "An error has occurred during the registration"
   },
   "profile": {
     "title": "Profil",
