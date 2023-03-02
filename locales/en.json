@@ -35,7 +35,8 @@
     "user_not_found": "User not found",
     "invalid_password": "Invalid password",
     "user_already_exists": "User already exists",
-    "error": "An error has occurred"
+    "unknown_error": "Unknown error",
+    "invalid_code": "Invalid code"
   },
   "login": {
     "signin_to_your_account": "Sign in to your account",
@@ -57,6 +58,15 @@
     "confirm_password": "Confirm Password",
     "signup": "Sign up",
     "already_have_an_account": "Already have an account ? Sign in"
+  },
+  "verify": {
+    "verify_your_account": "Verify your account",
+    "verify": "Verify",
+    "verification_code_sent": "A verification code has been sent to your email address",
+    "verification_code_sent_again": "A new verification code has been sent to your email address",
+    "resend_email": "Resend email",
+    "didnt_receive_email": "Didn't receive the email?",
+    "verification_successful": "Your account has been verified"
   },
   "profile": {
     "title": "Profil",

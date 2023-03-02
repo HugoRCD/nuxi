@@ -25,7 +25,6 @@ async function signin() {
     },
   });
   if (data.value) {
-    console.log(data.value);
     useSuccessToast(t("login.welcome_back") + " " + data.value.username);
     useUserStore().setUser(data.value);
     useRouter().push("/");
@@ -34,7 +33,7 @@ async function signin() {
   } else if (error.value?.statusMessage === "invalid_password") {
     useErrorToast(t("error.invalid_password"));
   } else {
-    useErrorToast(t("error.error"));
+    useErrorToast(t("error.unknown_error"));
   }
   loading.value = false;
 }

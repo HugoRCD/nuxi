@@ -34,7 +34,8 @@
     "user_not_found": "Utilisateur introuvable",
     "invalid_password": "Mot de passe incorrect",
     "user_already_exists": "Cet utilisateur existe déjà",
-    "error": "Une erreur est survenue"
+    "unknown_error": "Une erreur inconnue s'est produite",
+    "invalid_code": "Code de vérification incorrect"
   },
   "login": {
     "signin_to_your_account": "Connectez-vous à votre compte",
@@ -56,6 +57,15 @@
     "signup": "S'inscrire",
     "already_have_an_account": "Vous avez déjà un compte ? Connectez-vous",
     "you_have_successfully_registered": "Votre compte a été créé avec succès"
+  },
+  "verify": {
+    "verify_your_account": "Vérifiez votre compte",
+    "verify": "Vérifier",
+    "verification_code_sent": "Un code de vérification a été envoyé à votre adresse email, veuillez le saisir ci-dessous",
+    "verification_code_sent_again": "Un nouveau code de vérification a été envoyé à votre adresse email",
+    "resend_email": "Renvoyer l'email",
+    "didnt_receive_email": "Vous n'avez pas reçu d'email ?",
+    "verification_successful": "Votre compte a été vérifié avec succès"
   },
   "profile": {
     "title": "Profil",

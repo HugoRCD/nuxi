@@ -29,16 +29,13 @@ async function signup() {
       password: password.value,
     }
   });
-  console.log(data.value);
-  console.log(error.value);
   if (data.value) {
-    console.log(data.value);
     useSuccessToast(t("signup.you_have_successfully_registered"));
     useRouter().push("/auth/login");
   } else if (error.value?.statusMessage === "user_already_exists") {
     useErrorToast(t("error.user_already_exists"));
   } else {
-    useErrorToast(t("error.error"));
+    useErrorToast(t("error.unknown_error"));
   }
   loading.value = false;
 }

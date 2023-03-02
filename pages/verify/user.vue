@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import LanguageSelector from "~/components/settings/LanguageSelector.vue";
+const { t } = useI18n();
 
 const userStore = useUserStore();
 const user = userStore.getUser;
@@ -32,17 +33,16 @@ async function verify() {
       token: token.value,
     },
   });
-  if (error.value) {
-    useErrorToast(error.value.message || "Error verifying account");
-    loading.value = false;
-    return;
+  if (data.value) {
+    console.log(data.value);
+    useSuccessToast(t("verify.verification_successful"));
+    useRouter().push("/");
+  } else if (error.value?.statusMessage === "invalid_code") {
+    useErrorToast(t("error.invalid_code"));
+  } else {
+    useErrorToast(t("error.unknown_error"));
   }
-  if (data) {
-    loading.value = false;
-    userStore.setVerified();
-    useSuccessToast("Account verified!");
-    useRouter().push("/app/my-flows");
-  }
+  loading.value = false;
 }
 </script>
 
@@ -51,18 +51,22 @@ async function verify() {
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
       <div>
         <Logo :isText="false" class="flex justify-center" :size="12" />
-        <h2 class="text-center mt-6 text-3xl font-bold tracking-tight text-primary">Verify your account</h2>
+        <h2 class="text-center mt-6 text-3xl font-bold tracking-tight text-primary">
+          {{ $t("verify.verify_your_account") }}
+        </h2>
         <p class="my-6 text-center text-sm text-muted">
-          We have sent you an email with a verification link. Please click on the link to verify your account.
+          {{ $t("verify.verification_code_sent") }}
         </p>
       </div>
       <form @submit.prevent="verify" class="space-y-6">
         <input id="token" name="token" required placeholder="123456" class="input w-full" v-model="token" />
-        <ButtonPrimary :full-width="true" :pending="loading" type="submit" />
+        <ButtonPrimary :full-width="true" :pending="loading" type="submit" :text="$t('verify.verify')" />
       </form>
       <p class="my-6 text-center text-sm text-muted">
-        Didn't receive an email?
-        <span class="text-primary cursor-pointer" @click="sendVerificationEmail">Resend verification email</span>
+        {{ $t("verify.didnt_receive_email") }}
+        <span class="text-primary cursor-pointer" @click="sendVerificationEmail">
+          {{ $t("verify.resend_email") }}
+        </span>
       </p>
     </div>
     <LanguageSelector :is-text="true" />
