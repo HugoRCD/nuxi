@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import LanguageSelector from "~/components/settings/LanguageSelector.vue";
+
 definePageMeta({
   name: "Login",
   title: "Login",
@@ -62,5 +64,6 @@ async function signin() {
         {{$t("login.dont_have_an_account") }}
       </NuxtLink>
     </div>
+    <LanguageSelector :is-text="true" class="mt-6" />
   </div>
 </template>
