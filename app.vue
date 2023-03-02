@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useUser } from "~/composables/useAuth";
+
 const { locale } = useI18n();
 
 useHead({
@@ -23,13 +25,14 @@ useHead({
   ],
 });
 
-
 onMounted(() => {
   const userLocale = useLocalStorage("nuxi_locale", "en");
 
   useGlobalStore().setLocale(userLocale.value);
   locale.value = userLocale.value;
 });
+
+await useUser();
 </script>
 
 <template>

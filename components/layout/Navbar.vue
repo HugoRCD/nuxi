@@ -2,7 +2,7 @@
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 import { Bars3Icon } from "@heroicons/vue/24/outline";
 const navigation = getNavigation("home");
-const user = useSupabaseUser();
+const user = computed(() => useUserStore().getUser);
 </script>
 
 <template>

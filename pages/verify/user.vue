@@ -16,12 +16,12 @@ async function sendVerificationEmail() {
       email: user?.email,
     },
   });
-  if (error.value) {
-    useErrorToast(error.value.message || "Error sending verification email");
-    return;
-  }
-  if (data) {
-    useSuccessToast("Verification email sent!");
+  if (data.value) {
+    useSuccessToast(t("verify.verification_code_sent_again"));
+  } else if (error.value?.statusMessage === "user_not_found") {
+    useErrorToast(t("error.user_not_found"));
+  } else {
+    useErrorToast(t("error.unknown_error"));
   }
 }
 
@@ -36,6 +36,7 @@ async function verify() {
   if (data.value) {
     console.log(data.value);
     useSuccessToast(t("verify.verification_successful"));
+    userStore.setVerified();
     useRouter().push("/");
   } else if (error.value?.statusMessage === "invalid_code") {
     useErrorToast(t("error.invalid_code"));

@@ -1,24 +1,20 @@
 <script setup lang="ts">
 import { MenuButton, Menu, MenuItems } from "@headlessui/vue";
+const { t } = useI18n();
 
 const navigation = getNavigation("profile");
 const userStore = useUserStore();
 
 const user = userStore.getUser;
 
-const profile = computed(() => {
-  return user?.avatar;
-});
-
 async function logout() {
-  const { t } = useI18n();
   const { data } = await useFetch("/api/auth/logout", {
     method: "POST",
   });
   if (data.value) {
     console.log(data.value);
-    useSuccessToast(t("profile.logout"));
   }
+  useSuccessToast(t("profile.logout"));
   userStore.logout();
   useRouter().push("/auth/login");
 }
@@ -33,7 +29,7 @@ async function logout() {
         <span class="sr-only">Open user menu</span>
         <img
           class="h-8 w-8 rounded-full"
-          :src="profile"
+          :src="user?.avatar"
           alt=""
         />
       </MenuButton>

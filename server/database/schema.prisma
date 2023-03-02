@@ -21,8 +21,8 @@ model User {
   isValidated       Boolean            @default(false)
   authToken         String?            @unique @db.VarChar(255)
   id                Int                @id @default(autoincrement())
-  avatar            String             @default("https://fexpltoqrphaingpxdjt.supabase.co/storage/v1/object/public/avatars/default-avatar")
-  cover             String             @default("https://fexpltoqrphaingpxdjt.supabase.co/storage/v1/object/public/avatars/default-cover")
+  avatar            String             @default("https://fexpltoqrphaingpxdjt.supabase.co/storage/v1/object/public/assets/default-avatar")
+  cover             String             @default("https://fexpltoqrphaingpxdjt.supabase.co/storage/v1/object/public/assets/default-cover")
   emailVerification EmailVerification?
   resetPassword     ResetPassword?
 }

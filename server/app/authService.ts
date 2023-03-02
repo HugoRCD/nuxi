@@ -38,6 +38,16 @@ export async function login(login: string, password: string) {
   return formatUser(user);
 }
 
+export async function getUserByAuthToken(authToken: string) {
+  const user = await prisma.user.findFirst({
+    where: {
+      authToken,
+    },
+  });
+  if (!user) return null;
+  return formatUser(user);
+}
+
 export async function generateResetPasswordToken(userId: number) {
   const token = Math.random().toString(36).substr(2);
   await prisma.resetPassword.upsert({

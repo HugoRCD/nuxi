@@ -45,7 +45,6 @@
     "forgot_password": "Forgot password ?",
     "signin": "Sign in",
     "dont_have_an_account": "Don't have an account? Sign up",
-    "you_have_successfully_registered": "You have successfully registered",
     "welcome_back": "Welcome back"
   },
   "signup": {
@@ -57,7 +56,8 @@
     "password": "Password",
     "confirm_password": "Confirm Password",
     "signup": "Sign up",
-    "already_have_an_account": "Already have an account ? Sign in"
+    "already_have_an_account": "Already have an account ? Sign in",
+    "signup_success": "You have successfully registered"
   },
   "verify": {
     "verify_your_account": "Verify your account",
@@ -65,7 +65,7 @@
     "verification_code_sent": "A verification code has been sent to your email address",
     "verification_code_sent_again": "A new verification code has been sent to your email address",
     "resend_email": "Resend email",
-    "didnt_receive_email": "Didn't receive the email?",
+    "didnt_receive_email": "Didn't receive the email ?",
     "verification_successful": "Your account has been verified"
   },
   "profile": {

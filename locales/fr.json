@@ -56,7 +56,7 @@
     "confirm_password": "Confirmer le mot de passe",
     "signup": "S'inscrire",
     "already_have_an_account": "Vous avez déjà un compte ? Connectez-vous",
-    "you_have_successfully_registered": "Votre compte a été créé avec succès"
+    "signup_success": "Votre compte a été créé avec succès"
   },
   "verify": {
     "verify_your_account": "Vérifiez votre compte",

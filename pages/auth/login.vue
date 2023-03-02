@@ -27,6 +27,7 @@ async function signin() {
   if (data.value) {
     useSuccessToast(t("login.welcome_back") + " " + data.value.username);
     useUserStore().setUser(data.value);
+    useUserStore().setAuthToken(data.value.authToken);
     useRouter().push("/");
   } else if (error.value?.statusMessage === "user_not_found") {
     useErrorToast(t("error.user_not_found"));

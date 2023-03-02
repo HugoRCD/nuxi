@@ -30,7 +30,7 @@ async function signup() {
     }
   });
   if (data.value) {
-    useSuccessToast(t("signup.you_have_successfully_registered"));
+    useSuccessToast(t("signup.signup_success"));
     useRouter().push("/auth/login");
   } else if (error.value?.statusMessage === "user_already_exists") {
     useErrorToast(t("error.user_already_exists"));

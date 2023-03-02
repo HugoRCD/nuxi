@@ -9,6 +9,7 @@ export interface User {
   role: number;
   isVerified: boolean;
   isValidated: boolean;
+  authToken: string;
 }
 
 export interface createUserInput {
