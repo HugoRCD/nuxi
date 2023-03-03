@@ -1,26 +1,36 @@
-import { FetchMovieResponse } from "~/types/movie";
+import { FetchMovieResponse, Movie } from "~/types/movie";
 
 const useMovie = () => {
   const config = useRuntimeConfig().public.tmdb;
   const apiKey = config.apiKey;
   const baseUrl = "https://api.themoviedb.org/3";
   const language = "fr-FR";
-  async function fetchPopularMovie(): Promise<FetchMovieResponse> {
+
+  const popularMovies = ref(<Movie[]>[]);
+  const topRatedMovies = ref(<Movie[]>[]);
+  const detailMovie = ref(<Movie>{});
+
+  async function fetchPopularMovie() {
     const url = `${baseUrl}/movie/popular?api_key=${apiKey}&language=${language}`;
-    return await $fetch(url);
+    const response = await $fetch<FetchMovieResponse>(url);
+    popularMovies.value = response.results;
   }
-  async function fetchTopRatedMovie(): Promise<FetchMovieResponse> {
+  async function fetchTopRatedMovie() {
     const url = `${baseUrl}/movie/top_rated?api_key=${apiKey}&language=${language}`;
-    return await $fetch(url);
+    const response = await $fetch<FetchMovieResponse>(url);
+    topRatedMovies.value = response.results;
   }
-  async function fetchMovie(id: number): Promise<FetchMovieResponse> {
+  async function fetchMovie(id: number) {
     const url = `${baseUrl}/movie/${id}?api_key=${apiKey}&language=${language}`;
-    return await $fetch(url);
+    detailMovie.value = await $fetch<Movie>(url);
   }
   return {
     fetchPopularMovie,
     fetchTopRatedMovie,
     fetchMovie,
+    popularMovies,
+    topRatedMovies,
+    detailMovie,
   };
 };
 
