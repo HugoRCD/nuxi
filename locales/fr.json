@@ -12,7 +12,13 @@
     "directors": "Réalisateurs",
     "director": "Réalisateur",
     "genres": "Genres",
-    "genre": "Genre"
+    "genre": "Genre",
+    "play": "Lecture",
+    "watch": "Regarder",
+    "watch_trailer": "Regarder la bande-annonce",
+    "add_to_watchlist": "Ajouter à la liste de lecture",
+    "remove_from_watchlist": "Supprimer de la liste de lecture",
+    "watchlist": "Liste de lecture"
   },
   "navigation": {
     "home": "Accueil",

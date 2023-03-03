@@ -22,13 +22,15 @@ defineProps({
         {{ film.overview }}
       </p>
       <div class="flex items-center mt-4 space-x-4">
-        <button class="glass-button">
-          <PlayIcon class="h-4 w-4 inline-block mr-2" />
-          Play
-        </button>
+        <NuxtLink :to="`/movie/${film.id}`" class="glass-button">
+          <button>
+            <PlayIcon class="h-4 w-4 inline-block mr-2" />
+            {{ $t("global.play") }}
+          </button>
+        </NuxtLink>
         <button class="glass-button">
           <PlusCircleIcon class="h-4 w-4 inline-block mr-2" />
-          My List
+          {{ $t("global.add_to_watchlist") }}
         </button>
       </div>
     </div>

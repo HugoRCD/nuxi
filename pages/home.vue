@@ -10,7 +10,7 @@ definePageMeta({
 
 const { fetchTopRatedMovie, fetchPopularMovie } = useMovie();
 
-const { data, pending } = useLazyAsyncData(async () => {
+const { data, pending } = useAsyncData(async () => {
   const [topRated, popular] = await Promise.all([fetchTopRatedMovie(), fetchPopularMovie()]);
   return {
     topRated,

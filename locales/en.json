@@ -12,7 +12,13 @@
     "directors": "Directors",
     "director": "Director",
     "genres": "Genres",
-    "genre": "Genre"
+    "genre": "Genre",
+    "play": "Play",
+    "watch": "Watch",
+    "watch_trailer": "Watch trailer",
+    "add_to_watchlist": "Add to watchlist",
+    "remove_from_watchlist": "Remove from watchlist",
+    "watchlist": "Watchlist"
   },
   "navigation": {
     "home": "Home",
