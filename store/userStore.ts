@@ -70,7 +70,7 @@ export const useUserStore = defineStore("user", {
           await useFetch("/api/user/" + this.user.id, {
             method: "DELETE",
           });
-          useSuccessToast("Account deleted");
+          useSuccessToast("Account deleted successfully");
           useRouter().push("/");
           this.user = null;
         }

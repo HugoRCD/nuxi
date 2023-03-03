@@ -107,3 +107,10 @@ export async function updateUser(userId: number, updateUserInput: updateUserInpu
   });
   return formatUser(user);
 }
+
+export async function deleteUser(userId: number) {
+  const user = await prisma.user.delete({
+    where: { id: userId },
+  });
+  return formatUser(user);
+}

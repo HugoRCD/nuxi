@@ -94,5 +94,8 @@
     "title": "Settings",
     "description": "Here you can change your application settings.",
     "language": "Language"
+  },
+  "home": {
+    "trending": "Films and series trending this week"
   }
 }

@@ -93,5 +93,8 @@
     "title": "Paramètres",
     "description": "Gérez les paramètres de l'application",
     "language": "Langue"
+  },
+  "home": {
+    "trending": "Films et séries populaires cette semaine"
   }
 }
