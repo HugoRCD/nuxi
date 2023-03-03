@@ -13,16 +13,12 @@ defineProps({
     type: Boolean,
     default: false,
   },
-  pending: {
-    type: Boolean,
-    required: true,
-  },
 });
 </script>
 
 <template>
   <div>
     <PosterCard :film="film" v-if="poster" />
-    <BackdropCard :film="film" :pending="pending" v-else />
+    <BackdropCard :film="film" v-else />
   </div>
 </template>

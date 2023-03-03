@@ -7,17 +7,12 @@ defineProps({
     type: Object as PropType<Movie>,
     required: true,
   },
-  pending: {
-    type: Boolean,
-    required: true,
-  },
 });
 </script>
 
 <template>
   <div>
-    <div v-if="pending" class="w-full h-96 bg-gray-400" />
-    <div class="relative w-full" v-else>
+    <div class="relative w-full">
       <nuxt-img :src="`/tmdb/original/${film.backdrop_path}`" :alt="film.title" />
       <div class="absolute inset-0 bg-gradient-to-t from-black opacity-70" />
       <div class="absolute transform -translate-y-1/2 top-1/2 p-4">
