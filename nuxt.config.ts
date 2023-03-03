@@ -27,7 +27,7 @@ export default defineNuxtConfig({
   ],
 
   imports: {
-    dirs: ["store"],
+    dirs: ["store", "types"],
   },
 
   runtimeConfig: {
@@ -40,27 +40,36 @@ export default defineNuxtConfig({
     public: {
       appDomain: process.env.APP_URL,
       apiUrl: process.env.API_URL,
+      tmdb: {
+        apiKey: process.env.TMDB_API_KEY,
+        accessToken: process.env.TMDB_ACCESS_TOKEN,
+      },
     },
   },
 
   i18n: {
     vueI18n: {
       legacy: false,
-      locale: "en",
-      fallbackLocale: "en",
-      availableLocales: ["en", "fr"],
+      locale: "en-US",
+      fallbackLocale: "en-US",
+      availableLocales: ["en-US", "fr-FR"],
       messages: {
-        en,
-        fr,
+        "en-US": en,
+        "fr-FR": fr,
       },
     },
   },
 
   image: {
     alias: {
-      supabase: "https://fexpltoqrphaingpxdjt.supabase.co/storage/v1/object/public",
+      supabase:
+        "https://fexpltoqrphaingpxdjt.supabase.co/storage/v1/object/public",
+      tmdb: "https://image.tmdb.org/t/p",
     },
-    domains: ["https://fexpltoqrphaingpxdjt.supabase.co"],
+    domains: [
+      "https://fexpltoqrphaingpxdjt.supabase.co",
+      "https://image.tmdb.org",
+    ],
     dir: "assets/media",
   },
 });

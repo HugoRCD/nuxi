@@ -9,7 +9,7 @@ export const useGlobalStore = defineStore({
   id: "global",
   state: (): GlobalState => ({
     loading: false,
-    locale: "en",
+    locale: "en-US",
   }),
   getters: {
     isLoading(): boolean {

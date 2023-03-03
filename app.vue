@@ -26,7 +26,7 @@ useHead({
 });
 
 onMounted(() => {
-  const userLocale = useLocalStorage("nuxi_locale", "en");
+  const userLocale = useLocalStorage("nuxi_locale", "en-US");
 
   useGlobalStore().setLocale(userLocale.value);
   locale.value = userLocale.value;

@@ -13,12 +13,12 @@ defineProps({
 const availableLocales = [
   {
     name: "English",
-    iso: "en",
+    iso: "en-US",
     flag: "🇺🇸",
   },
   {
     name: "Français",
-    iso: "fr",
+    iso: "fr-FR",
     flag: "🇫🇷",
   },
 ];
