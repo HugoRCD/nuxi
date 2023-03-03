@@ -88,5 +88,10 @@
     "profile_update_success": "Votre profil a été mis à jour avec succès",
     "profile_delete_success": "Votre compte a été supprimé avec succès",
     "username_or_email_already_exists": "Ce nom d'utilisateur existe déjà"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "description": "Gérez les paramètres de l'application",
+    "language": "Langue"
   }
 }

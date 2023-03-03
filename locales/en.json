@@ -89,5 +89,10 @@
     "profile_update_success": "Your profile has been updated",
     "profile_delete_success": "Your account has been deleted",
     "username_or_email_already_exists": "Username already exists"
+  },
+  "settings": {
+    "title": "Settings",
+    "description": "Here you can change your application settings.",
+    "language": "Language"
   }
 }
