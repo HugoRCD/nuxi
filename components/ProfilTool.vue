@@ -27,10 +27,12 @@ async function logout() {
         class="flex rounded-full bg-gray-800 text-sm focus:outline-none"
       >
         <span class="sr-only">Open user menu</span>
-        <img
-          class="h-8 w-8 rounded-full"
-          :src="user?.avatar"
-          alt=""
+        <nuxt-img
+          preload
+          class="h-10 w-10 rounded-full object-cover"
+          :src="user.avatar"
+          sizes="sm:100vw md:50vw lg:400px"
+          :alt="user.username"
         />
       </MenuButton>
     </div>

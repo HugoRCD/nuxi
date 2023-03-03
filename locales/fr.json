@@ -69,10 +69,24 @@
   },
   "profile": {
     "title": "Profil",
-    "firstname": "Prénom",
-    "lastname": "Nom",
-    "delete_account": "Supprimer le compte",
+    "description": "Gérez votre profil, attention ces informations seront public dans la version finale",
+    "username": "Nom d'utilisateur",
+    "bio": "Bio",
+    "avatar": "Avatar",
     "delete_my_account": "Supprimer mon compte",
-    "logout": "A bientôt"
+    "delete_my_account_description": "Une fois votre compte supprimé, toutes vos données seront définitivement supprimées. Cette action est irréversible.",
+    "logout": "A bientôt",
+    "profile_update_confirmation": "Êtes-vous sûr de vouloir mettre à jour votre profil ?",
+    "profile_delete_confirmation": "Êtes-vous sûr de vouloir supprimer votre compte ?",
+    "avatar_upload": "Télécharger un avatar",
+    "avatar_upload_success": "Votre avatar a été mis à jour avec succès",
+    "avatar_upload_error": "Une erreur s'est produite lors de la mise à jour de votre avatar",
+    "avatar_uploaded": "Avatar téléchargé",
+    "avatar_none": "Aucun avatar",
+    "avatar_save": "Modifier l'avatar",
+    "update_profile": "Mettre à jour le profil",
+    "profile_update_success": "Votre profil a été mis à jour avec succès",
+    "profile_delete_success": "Votre compte a été supprimé avec succès",
+    "username_or_email_already_exists": "Ce nom d'utilisateur existe déjà"
   }
 }

@@ -3,14 +3,14 @@ function checkSize(file: File, size: number) {
 }
 
 export async function useUploadAvatar(file: File) {
-  if (!checkSize(file, 10000000)) {
-    useErrorToast("File size is too big (max 10MB)");
+  if (!checkSize(file, 5000000)) {
+    useErrorToast("File size is too big (max 5MB)");
     return;
   }
   const client = useSupabaseClient();
   const user = useUserStore().getUser;
   if (!user) return;
-  const filename = user.firstname.toLowerCase() + "-" + user.lastname.toLowerCase();
+  const filename = user.username.toLowerCase();
   const { error } = await client.storage.from("avatars").upload(filename, file, {
     cacheControl: "3600",
     upsert: true,
@@ -28,14 +28,14 @@ export async function useUploadAvatar(file: File) {
 }
 
 export async function useUploadCover(file: File) {
-  if (!checkSize(file, 10000000)) {
-    useErrorToast("File size is too big (max 10MB)");
+  if (!checkSize(file, 5000000)) {
+    useErrorToast("File size is too big (max 5MB)");
     return;
   }
   const client = useSupabaseClient();
   const user = useUserStore().getUser;
   if (!user) return;
-  const filename = user.firstname.toLowerCase() + "-" + user.lastname.toLowerCase() + "-cover";
+  const filename = user.username.toLowerCase() + "-cover";
   const { error } = await client.storage.from("avatars").upload(filename, file, {
     cacheControl: "3600",
     upsert: true,

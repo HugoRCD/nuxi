@@ -10,6 +10,7 @@ export function formatUser(user: User) {
     username: user.username,
     email: user.email,
     role: user.role,
+    bio: user.bio,
     avatar: user.avatar,
     cover: user.cover,
     isVerified: user.isVerified,

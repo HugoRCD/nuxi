@@ -70,10 +70,24 @@
   },
   "profile": {
     "title": "Profil",
-    "firstname": "Firstname",
-    "lastname": "Lastname",
-    "delete_account": "Delete account",
+    "description": "Be careful, this information will be visible to all users in the final version of the application.",
+    "username": "Username",
+    "bio": "Bio",
+    "avatar": "Avatar",
     "delete_my_account": "Delete my account",
-    "logout": "See you soon"
+    "delete_my_account_description": "Once your account is deleted, all of your data will be permanently removed. This action cannot be undone.",
+    "logout": "See you soon",
+    "profile_update_confirmation": "Are you sure you want to update your profile ?",
+    "profile_delete_confirmation": "Are you sure you want to delete your account ?",
+    "avatar_upload": "Upload an avatar",
+    "avatar_upload_success": "Your avatar has been uploaded",
+    "avatar_upload_error": "An error has occurred while uploading your avatar",
+    "avatar_uploaded": "Avatar uploaded",
+    "avatar_none": "No avatar",
+    "avatar_save": "Change avatar",
+    "update_profile": "Update profile",
+    "profile_update_success": "Your profile has been updated",
+    "profile_delete_success": "Your account has been deleted",
+    "username_or_email_already_exists": "Username already exists"
   }
 }

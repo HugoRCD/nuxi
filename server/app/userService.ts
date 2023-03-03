@@ -1,6 +1,6 @@
 
 import prisma, { formatUser } from "~/server/database/client";
-import { createUserInput } from "~/types/user";
+import { createUserInput, updateUserInput } from "~/types/user";
 import bcrypt from "bcrypt";
 import { sendGmail } from "~/server/app/mailerService";
 import newUser from "~/server/api/mailer/templates/new-user";
@@ -80,4 +80,30 @@ export async function getUserByLogin(login: string) {
     });
   }
   return user;
+}
+
+export async function updateUser(userId: number, updateUserInput: updateUserInput) {
+  const foundUser = await prisma.user.findFirst({
+    where: {
+      OR: [
+        {
+          username: updateUserInput.username,
+        },
+        {
+          email: updateUserInput.email,
+        },
+      ],
+    },
+  });
+  if (foundUser && foundUser.id !== userId) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: "username_or_email_already_exists",
+    });
+  }
+  const user = await prisma.user.update({
+    where: { id: userId },
+    data: updateUserInput,
+  });
+  return formatUser(user);
 }
