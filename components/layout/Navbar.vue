@@ -1,8 +1,20 @@
 <script setup lang="ts">
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
-import { Bars3Icon } from "@heroicons/vue/24/outline";
+import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/vue/24/outline";
 const navigation = getNavigation("home");
 const user = computed(() => useUserStore().getUser);
+
+const search = ref("");
+
+function searchHandler() {
+  if (search.value.length > 0) {
+    useRouter().push("/search?q=" + search.value);
+  } else {
+    useRouter().push("/");
+  }
+}
+
+watch(search, searchHandler, { immediate: true });
 </script>
 
 <template>
@@ -11,33 +23,33 @@ const user = computed(() => useUserStore().getUser);
       <div class="flex flex-1 items-center">
         <div class="hidden lg:flex lg:gap-x-12">
           <NuxtLink
-              v-for="item in navigation"
-              :key="item.name"
-              :to="item.to"
-              :id="item.name.toLowerCase()"
-              class="text-sm font-semibold leading-6 text-primary hover:text-accent"
-          >{{ $t("navigation." + item.name.toLowerCase()) }}
+            v-for="item in navigation"
+            :key="item.name"
+            :to="item.to"
+            :id="item.name.toLowerCase()"
+            class="text-sm font-semibold leading-6 text-primary hover:text-accent"
+            >{{ $t("navigation." + item.name.toLowerCase()) }}
           </NuxtLink>
         </div>
         <Menu as="div" class="relative inline-block text-left lg:hidden">
           <div>
             <MenuButton
-                class="inline-flex w-full justify-center rounded-md font-medium text-primary focus:outline-none"
+              class="inline-flex w-full justify-center rounded-md font-medium text-primary focus:outline-none"
             >
               <span class="sr-only">Open menu</span>
               <Bars3Icon class="w-6 h-6" />
             </MenuButton>
           </div>
           <transition
-              enter-active-class="transition ease-out duration-100"
-              enter-from-class="transform opacity-0 scale-95"
-              enter-to-class="transform opacity-100 scale-100"
-              leave-active-class="transition ease-in duration-75"
-              leave-from-class="transform opacity-100 scale-100"
-              leave-to-class="transform opacity-0 scale-95"
+            enter-active-class="transition ease-out duration-100"
+            enter-from-class="transform opacity-0 scale-95"
+            enter-to-class="transform opacity-100 scale-100"
+            leave-active-class="transition ease-in duration-75"
+            leave-from-class="transform opacity-100 scale-100"
+            leave-to-class="transform opacity-0 scale-95"
           >
             <MenuItems
-                class="absolute left-0 w-56 origin-top-left bg-secondary rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none divide-y divide-gray-600"
+              class="absolute left-0 w-56 origin-top-left bg-secondary rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none divide-y divide-gray-600"
             >
               <div class="px-4 py-3" v-if="user">
                 <p class="text-sm">Signed in as</p>
@@ -46,9 +58,9 @@ const user = computed(() => useUserStore().getUser);
               <div>
                 <MenuItem v-slot="{ active }" v-for="item in navigation" :key="item.name">
                   <NuxtLink
-                      :to="item.to"
-                      :id="item.name.toLowerCase()"
-                      :class="[
+                    :to="item.to"
+                    :id="item.name.toLowerCase()"
+                    :class="[
                       active || item.name === $route.name ? 'bg-accent-faded text-accent' : 'text-primary',
                       'block w-full px-4 py-2 text-left text-sm',
                     ]"
@@ -67,7 +79,20 @@ const user = computed(() => useUserStore().getUser);
           <NuxtLink to="/auth/login" class="btn-primary py-1">{{ $t("navigation.login") }}</NuxtLink>
           <NuxtLink to="/auth/signup" class="btn-secondary py-1">{{ $t("navigation.signup") }}</NuxtLink>
         </div>
-        <ProfilTool v-else />
+        <div v-else class="flex gap-x-4 items-center">
+          <div class="relative flex-grow items-stretch focus-within:z-10 hidden md:flex">
+            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+              <MagnifyingGlassIcon class="w-4 h-4" />
+            </div>
+            <input
+              type="text"
+              class="bg-transparent block w-full border-0 py-1.5 pl-10 sm:text-sm focus:outline-none focus:ring-0 focus:border-0"
+              placeholder="Search..."
+              v-model="search"
+            />
+          </div>
+          <ProfilTool />
+        </div>
       </div>
     </nav>
   </header>
