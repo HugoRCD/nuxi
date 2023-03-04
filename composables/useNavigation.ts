@@ -14,16 +14,13 @@ export function getNavigation(where: Where): Navigation[] {
       return [
         { name: "Home", to: "/", icon: HomeIcon },
         { name: "Films", to: "/films", icon: HomeIcon },
-        { name: "Series", to: "/series", icon: HomeIcon },
       ];
     case "profile":
       return [
         { name: "Profile", to: "/profile/account", icon: HomeIcon },
-        { name: "Settings", to: "/profile/settings", icon: HomeIcon}
+        { name: "Settings", to: "/profile/settings", icon: HomeIcon },
       ];
     default:
-      return [
-        { name: "Home", to: "/", icon: HomeIcon },
-      ];
+      return [{ name: "Home", to: "/", icon: HomeIcon }];
   }
 }

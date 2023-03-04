@@ -27,8 +27,10 @@ useHead({
 
 onMounted(() => {
   const userLocale = useLocalStorage("nuxi_locale", "en-US");
+  const favoriteMovies = useLocalStorage("favoriteMovies", []);
 
   useGlobalStore().setLocale(userLocale.value);
+  useMovieStore().setFavoriteMovies(favoriteMovies.value);
   locale.value = userLocale.value;
 });
 

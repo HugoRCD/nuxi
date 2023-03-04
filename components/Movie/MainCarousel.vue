@@ -38,7 +38,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div>
-    <div class="flex flex-col items-center justify-center gap-8">
+    <div class="flex flex-col items-center justify-center gap-8 md:h-96">
       <BackdropCard v-if="data" :film="data.results[currentMovie]" />
     </div>
   </div>

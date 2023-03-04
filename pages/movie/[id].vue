@@ -9,6 +9,7 @@ definePageMeta({
 });
 const { fetchMovie, detailMovie } = useMovie();
 
+const movieStore = useMovieStore();
 const route = useRoute();
 const filmId = parseInt(route.params.id as string);
 const trailerPreview = ref();
@@ -52,7 +53,7 @@ function getRating(rating: number) {
             <PlayIcon class="h-4 w-4" />
             <span class="hidden md:block">{{ $t("global.play") }}</span>
           </button>
-          <button class="glass-button flex items-center gap-2">
+          <button class="glass-button flex items-center gap-2" @click="movieStore.addFavoriteMovie(detailMovie)">
             <PlusCircleIcon class="h-4 w-4" />
             <span class="hidden md:block">{{ $t("global.add_to_watchlist") }}</span>
           </button>
