@@ -3,14 +3,18 @@ import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/vue/24/outline";
 const navigation = getNavigation("home");
 const user = computed(() => useUserStore().getUser);
+const { t } = useI18n();
 
 const search = ref("");
+const router = useRouter();
 
 function searchHandler() {
   if (search.value.length > 0) {
     useRouter().push("/search?q=" + search.value);
   } else {
-    useRouter().push("/");
+    if (router.currentRoute.value.path === "/search") {
+      useRouter().push("/");
+    }
   }
 }
 
@@ -87,7 +91,7 @@ watch(search, searchHandler, { immediate: true });
             <input
               type="text"
               class="bg-transparent block w-full border-0 py-1.5 pl-10 sm:text-sm focus:outline-none focus:ring-0 focus:border-0"
-              placeholder="Search..."
+              :placeholder="t('navigation.search') + '...'"
               v-model="search"
             />
           </div>
