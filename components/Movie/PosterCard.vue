@@ -38,20 +38,16 @@ function getRating(rating: number) {
       <nuxt-img
         :src="`/tmdb/original/${film.poster_path}`"
         :alt="film.title"
-        class="rounded-xl shadow-lg cursor-pointer"
+        class="rounded-xl shadow-lg cursor-pointer group-hover:opacity-50 transition-opacity duration-300 ease-in-out"
         preview-disabled
       />
     </NuxtLink>
     <div
       class="flex flex-col absolute p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out bottom-0 left-0 w-full"
-      :style="{
-        background: `linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0)
-      100%)`,
-      }"
     >
       <div class="flex flex-col gap-1">
         <div class="flex flex-col justify-center items-center cursor-pointer">
-          <h3 class="text-white opacity-80 font-bold text-sm text-center">
+          <h3 class="text-white opacity-90 font-bold text-sm text-center">
             {{ film.title }}
           </h3>
           <div class="flex items-center gap-2 justify-center">
