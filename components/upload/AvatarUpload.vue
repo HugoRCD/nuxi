@@ -12,7 +12,7 @@ async function uploadAvatar() {
   if (avatar_file.value) {
     const publicUrl = await useUploadAvatar(avatar_file.value);
     if (publicUrl && user) user.avatar = publicUrl;
-    await userStore.updateUser(false);
+    await userStore.updateUser(false, false);
   }
 }
 </script>
