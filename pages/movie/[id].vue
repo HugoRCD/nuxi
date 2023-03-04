@@ -11,6 +11,7 @@ const { fetchMovie, detailMovie } = useMovie();
 
 const route = useRoute();
 const filmId = parseInt(route.params.id as string);
+const trailerPreview = ref();
 
 onMounted(() => {
   fetchMovie(filmId);
@@ -47,12 +48,10 @@ function getRating(rating: number) {
           {{ detailMovie.overview }}
         </p>
         <div class="flex items-center mt-4 space-x-4">
-          <NuxtLink :to="`/movie/${detailMovie.id}`" class="glass-button">
-            <button class="flex items-center gap-2">
-              <PlayIcon class="h-4 w-4" />
-              <span class="hidden md:block">{{ $t("global.play") }}</span>
-            </button>
-          </NuxtLink>
+          <button class="glass-button flex items-center gap-2" @click="trailerPreview.show()">
+            <PlayIcon class="h-4 w-4" />
+            <span class="hidden md:block">{{ $t("global.play") }}</span>
+          </button>
           <button class="glass-button flex items-center gap-2">
             <PlusCircleIcon class="h-4 w-4" />
             <span class="hidden md:block">{{ $t("global.add_to_watchlist") }}</span>
@@ -82,9 +81,10 @@ function getRating(rating: number) {
           </span>
         </div>
       </div>
-      <div class="w-1/2 z-10">
-        <nuxt-img :src="`/tmdb/w500/${detailMovie.poster_path}`" :alt="detailMovie.title" />
+      <div class="z-10 hidden md:block">
+        <nuxt-img :src="`/tmdb/original/${detailMovie.poster_path}`" :alt="detailMovie.title" />
       </div>
     </div>
+    <TrailerPreview ref="trailerPreview" :film="detailMovie" />
   </div>
 </template>

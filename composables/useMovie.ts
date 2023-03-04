@@ -10,7 +10,6 @@ const useMovie = () => {
   const popularMovies = ref(<Movie[]>[]);
   const topRatedMovies = ref(<Movie[]>[]);
   const detailMovie = ref(<Movie>{});
-
   async function fetchPopularMovie() {
     globalStore.setLoading(true);
     const url = `${baseUrl}/movie/popular?api_key=${apiKey}&language=${language}`;
@@ -28,7 +27,10 @@ const useMovie = () => {
   async function fetchMovie(id: number) {
     globalStore.setLoading(true);
     const url = `${baseUrl}/movie/${id}?api_key=${apiKey}&language=${language}`;
+    const videoUrl = `${baseUrl}/movie/${id}/videos?api_key=${apiKey}&language=${language}`;
     detailMovie.value = await $fetch<Movie>(url);
+    detailMovie.value.videos = await $fetch(videoUrl);
+    console.log(detailMovie.value);
     globalStore.setLoading(false);
   }
   return {
