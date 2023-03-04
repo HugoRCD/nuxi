@@ -30,7 +30,7 @@ onMounted(() => {
   const favoriteMovies = useLocalStorage("favoriteMovies", []);
 
   useGlobalStore().setLocale(userLocale.value);
-  useMovieStore().setFavoriteMovies(favoriteMovies.value);
+  useMovieStore().loadFavoriteMovies(favoriteMovies.value);
   locale.value = userLocale.value;
 });
 

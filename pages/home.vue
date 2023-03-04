@@ -10,7 +10,11 @@ definePageMeta({
   middleware: ["auth"],
 });
 
-const { fetchTopRatedMovie, fetchPopularMovie, topRatedMovies, popularMovies, favoriteMovies } = useMovie();
+const { fetchTopRatedMovie, fetchPopularMovie, topRatedMovies, popularMovies } = useMovie();
+
+const favoriteMovies = computed(() => {
+  return useMovieStore().getFavoriteMovies;
+});
 
 onMounted(() => {
   fetchTopRatedMovie();

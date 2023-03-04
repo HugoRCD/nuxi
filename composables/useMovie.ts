@@ -2,13 +2,11 @@ import { FetchMovieResponse, Movie } from "~/types/movie";
 
 const useMovie = () => {
   const globalStore = useGlobalStore();
-  const movieStore = useMovieStore();
   const config = useRuntimeConfig().public.tmdb;
   const apiKey = config.apiKey;
   const baseUrl = "https://api.themoviedb.org/3";
   const language = "fr-FR";
 
-  const favoriteMovies = movieStore.getFavoriteMovies;
   const popularMovies = ref(<Movie[]>[]);
   const topRatedMovies = ref(<Movie[]>[]);
   const detailMovie = ref(<Movie>{});
@@ -41,7 +39,6 @@ const useMovie = () => {
     popularMovies,
     topRatedMovies,
     detailMovie,
-    favoriteMovies,
   };
 };
 

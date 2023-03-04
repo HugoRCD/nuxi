@@ -15,17 +15,25 @@ export const useMovieStore = defineStore("movie", {
     },
   },
   actions: {
+    isFavoriteMovie(movieId: number): boolean {
+      return this.favoriteMovies.some((m) => m.id === movieId);
+    },
     addFavoriteMovie(movie: Movie) {
+      if (this.isFavoriteMovie(movie.id)) return;
       this.favoriteMovies.push(movie);
-      useLocalStorage("favoriteMovies", this.favoriteMovies);
-    },
-    removeFavoriteMovie(movie: Movie) {
-      this.favoriteMovies = this.favoriteMovies.filter(
-        (m) => m.id !== movie.id
+      localStorage.setItem(
+        "favoriteMovies",
+        JSON.stringify(this.favoriteMovies)
       );
-      useLocalStorage("favoriteMovies", this.favoriteMovies);
     },
-    setFavoriteMovies(movies: Movie[]) {
+    removeFavoriteMovie(movieId: number) {
+      this.favoriteMovies = this.favoriteMovies.filter((m) => m.id !== movieId);
+      localStorage.setItem(
+        "favoriteMovies",
+        JSON.stringify(this.favoriteMovies)
+      );
+    },
+    loadFavoriteMovies(movies: Movie[]) {
       this.favoriteMovies = movies;
     },
   },

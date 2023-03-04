@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PlayIcon, PlusCircleIcon } from "@heroicons/vue/24/solid";
+import { PlayIcon, PlusCircleIcon, XMarkIcon } from "@heroicons/vue/24/solid";
 import { Movie } from "~/types/movie";
 import { PropType } from "vue";
 defineProps({
@@ -31,9 +31,17 @@ const loading = computed(() => useGlobalStore().isLoading);
             <PlayIcon class="h-4 w-4" />
             <span class="hidden md:block">{{ $t("global.play") }}</span>
           </button>
-          <button class="glass-button flex items-center gap-2" @click="movieStore.addFavoriteMovie(film)">
+          <button
+            class="glass-button flex items-center gap-2"
+            @click="movieStore.addFavoriteMovie(film)"
+            v-if="!movieStore.isFavoriteMovie(film.id)"
+          >
             <PlusCircleIcon class="h-4 w-4" />
             <span class="hidden md:block">{{ $t("global.add_to_watchlist") }}</span>
+          </button>
+          <button class="glass-button flex items-center gap-2" @click="movieStore.removeFavoriteMovie(film.id)" v-else>
+            <XMarkIcon class="h-4 w-4" />
+            <span class="hidden md:block">{{ $t("global.remove_from_watchlist") }}</span>
           </button>
         </div>
       </div>
