@@ -19,7 +19,7 @@ const loading = computed(() => useGlobalStore().isLoading);
     <div class="relative w-full" v-if="!loading">
       <nuxt-img :src="`/tmdb/original/${film.backdrop_path}`" :alt="film.title" preload />
       <div class="absolute inset-0 bg-gradient-to-t from-black opacity-100" />
-      <div class="absolute transform -translate-y-1/2 top-1/2 p-4">
+      <div class="absolute transform -translate-y-1/2 top-1/2 px-4 md:px-8 lg:px-20">
         <h3 class="text-white opacity-70 md:text-4xl font-bold text-2xl">
           {{ film.title }}
         </h3>
@@ -27,10 +27,12 @@ const loading = computed(() => useGlobalStore().isLoading);
           {{ film.overview }}
         </p>
         <div class="flex items-center mt-4 space-x-4">
-          <button class="glass-button flex items-center gap-2">
-            <PlayIcon class="h-4 w-4" />
-            <span class="hidden md:block">{{ $t("global.play") }}</span>
-          </button>
+          <NuxtLink :to="`/movie/${film.id}`">
+            <button class="glass-button flex items-center gap-2">
+              <PlayIcon class="h-4 w-4" />
+              <span class="hidden md:block">{{ $t("global.play") }}</span>
+            </button>
+          </NuxtLink>
           <button
             class="glass-button flex items-center gap-2"
             @click="movieStore.addFavoriteMovie(film)"

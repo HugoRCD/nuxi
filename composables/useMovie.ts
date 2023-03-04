@@ -9,6 +9,7 @@ const useMovie = () => {
 
   const popularMovies = ref(<Movie[]>[]);
   const topRatedMovies = ref(<Movie[]>[]);
+  const comingSoonMovies = ref(<Movie[]>[]);
   const detailMovie = ref(<Movie>{});
   async function fetchPopularMovie() {
     globalStore.setLoading(true);
@@ -24,6 +25,13 @@ const useMovie = () => {
     topRatedMovies.value = response.results;
     globalStore.setLoading(false);
   }
+  async function fetchComingSoonMovie() {
+    globalStore.setLoading(true);
+    const url = `${baseUrl}/movie/upcoming?api_key=${apiKey}&language=${language}`;
+    const response = await $fetch<FetchMovieResponse>(url);
+    comingSoonMovies.value = response.results;
+    globalStore.setLoading(false);
+  }
   async function fetchMovie(id: number) {
     globalStore.setLoading(true);
     const url = `${baseUrl}/movie/${id}?api_key=${apiKey}&language=${language}`;
@@ -35,9 +43,11 @@ const useMovie = () => {
   return {
     fetchPopularMovie,
     fetchTopRatedMovie,
+    fetchComingSoonMovie,
     fetchMovie,
     popularMovies,
     topRatedMovies,
+    comingSoonMovies,
     detailMovie,
   };
 };

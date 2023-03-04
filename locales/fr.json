@@ -22,7 +22,8 @@
     "duration": "Durée",
     "rating": "Note",
     "minutes": "minutes",
-    "release_date": "Date de sortie"
+    "release_date": "Date de sortie",
+    "trailer": "Bande-annonce"
   },
   "navigation": {
     "home": "Accueil",
@@ -105,6 +106,9 @@
     "language": "Langue"
   },
   "home": {
-    "trending": "Films et séries populaires cette semaine"
+    "watchlist": "Liste de lecture",
+    "trending": "Films populaires cette semaine",
+    "top_rated": "Films les mieux notés",
+    "coming_soon": "Films à venir"
   }
 }

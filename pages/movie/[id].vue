@@ -32,6 +32,17 @@ function getRating(rating: number) {
   }
   return stars;
 }
+
+useHead({
+  title: detailMovie.value.title,
+  meta: [
+    {
+      hid: "description",
+      name: "description",
+      content: detailMovie.value.overview,
+    },
+  ],
+});
 </script>
 
 <template>
@@ -40,6 +51,7 @@ function getRating(rating: number) {
     :class="['bg-cover bg-center bg-no-repeat', { 'bg-gray-900': !detailMovie.backdrop_path }, 'relative w-full']"
   >
     <div class="absolute inset-0 bg-gradient-to-t from-black opacity-100" />
+    <div class="absolute inset-0 bg-gradient-to-r from-black opacity-60" />
     <div class="flex p-4 md:p-8 lg:p-20 items-center justify-between">
       <div>
         <h3 class="text-white opacity-70 md:text-4xl font-bold text-2xl">
@@ -49,9 +61,17 @@ function getRating(rating: number) {
           {{ detailMovie.overview }}
         </p>
         <div class="flex items-center mt-4 space-x-4">
-          <button class="glass-button flex items-center gap-2" @click="trailerPreview.show()">
+          <button class="glass-button flex items-center gap-2">
             <PlayIcon class="h-4 w-4" />
             <span class="hidden md:block">{{ $t("global.play") }}</span>
+          </button>
+          <button
+            class="glass-button flex items-center gap-2"
+            @click="trailerPreview.show()"
+            v-if="detailMovie.videos && detailMovie.videos.results && detailMovie.videos.results.length > 0"
+          >
+            <PlayIcon class="h-4 w-4" />
+            <span class="hidden md:block">{{ $t("global.trailer") }}</span>
           </button>
           <button class="glass-button flex items-center gap-2" @click="movieStore.addFavoriteMovie(detailMovie)">
             <PlusCircleIcon class="h-4 w-4" />
@@ -82,7 +102,7 @@ function getRating(rating: number) {
           </span>
         </div>
       </div>
-      <div class="z-10 hidden md:block">
+      <div class="z-10 hidden md:block w-1/2">
         <nuxt-img :src="`/tmdb/original/${detailMovie.poster_path}`" :alt="detailMovie.title" />
       </div>
     </div>

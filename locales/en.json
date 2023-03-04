@@ -22,7 +22,8 @@
     "duration": "Duration",
     "rating": "Rating",
     "minutes": "minutes",
-    "release_date": "Release date"
+    "release_date": "Release date",
+    "trailer": "Trailer"
   },
   "navigation": {
     "home": "Home",
@@ -106,6 +107,9 @@
     "language": "Language"
   },
   "home": {
-    "trending": "Films and series trending this week"
+    "watchlist": "Watchlist",
+    "trending": "Films trending this week",
+    "top_rated": "Top rated films",
+    "coming_soon": "Films coming soon"
   }
 }
