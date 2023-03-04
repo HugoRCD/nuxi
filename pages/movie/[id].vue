@@ -33,45 +33,57 @@ function getRating(rating: number) {
 </script>
 
 <template>
-  <div>
-    <div class="h-screen relative">
-      <nuxt-img
-        v-if="detailMovie.backdrop_path"
-        :src="`/tmdb/original/${detailMovie.backdrop_path}`"
-        :alt="detailMovie.title"
-        class="absolute inset-0 w-full h-full object-cover"
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-black opacity-70" />
-      <!--    add all the detail of the movie and possibility to watch the trailer here-->
-      <div class="absolute transform -translate-y-1/2 top-1/2 p-4 space-y-4">
+  <div
+    :style="{ backgroundImage: `url(https://image.tmdb.org/t/p/original/${detailMovie.backdrop_path})` }"
+    :class="['bg-cover bg-center bg-no-repeat', { 'bg-gray-900': !detailMovie.backdrop_path }, 'relative w-full']"
+  >
+    <div class="absolute inset-0 bg-gradient-to-t from-black opacity-100" />
+    <div class="flex p-4 md:p-8 lg:p-20 items-center justify-between">
+      <div>
         <h3 class="text-white opacity-70 md:text-4xl font-bold text-2xl">
           {{ detailMovie.title }}
         </h3>
         <p class="text-white opacity-70 md:w-1/2 text-sm mt-2 hidden md:block">
           {{ detailMovie.overview }}
         </p>
-        <div class="movie-info flex flex-col">
-          <span class="text-white opacity-70 text-sm">
-            {{ detailMovie.release_date }}
-          </span>
-          <div class="flex items-center space-x-1">
-            <div v-for="star in getRating(detailMovie.vote_average)" :key="star">
-              <StarIcon class="h-4 w-4 inline-block" :class="{ 'text-yellow-400': star.filled }" />
-            </div>
-          </div>
-        </div>
         <div class="flex items-center mt-4 space-x-4">
           <NuxtLink :to="`/movie/${detailMovie.id}`" class="glass-button">
-            <button>
-              <PlayIcon class="h-4 w-4 inline-block mr-2" />
-              {{ $t("global.play") }}
+            <button class="flex items-center gap-2">
+              <PlayIcon class="h-4 w-4" />
+              <span class="hidden md:block">{{ $t("global.play") }}</span>
             </button>
           </NuxtLink>
-          <button class="glass-button">
-            <PlusCircleIcon class="h-4 w-4 inline-block mr-2" />
-            {{ $t("global.add_to_watchlist") }}
+          <button class="glass-button flex items-center gap-2">
+            <PlusCircleIcon class="h-4 w-4" />
+            <span class="hidden md:block">{{ $t("global.add_to_watchlist") }}</span>
           </button>
         </div>
+        <div class="flex flex-col gap-3 mt-4">
+          <span class="text-white opacity-70 text-sm">
+            {{ $t("global.release_date") }}: {{ detailMovie.release_date }}
+          </span>
+          <span class="text-white opacity-70 text-sm">
+            {{ $t("global.rating") }}:
+            <span v-for="(star, index) in getRating(detailMovie.vote_average)" :key="index">
+              <StarIcon
+                class="h-4 w-4 inline-block mr-2"
+                :class="{ 'text-yellow-400': star.filled, 'text-gray-400': !star.filled }"
+              />
+            </span>
+          </span>
+          <span class="text-white opacity-70 text-sm">
+            {{ $t("global.genre") }}:
+            <span v-for="(genre, index) in detailMovie.genres" :key="index">
+              {{ genre.name }}{{ index < detailMovie.genres.length - 1 ? ", " : "" }}
+            </span>
+          </span>
+          <span class="text-white opacity-70 text-sm">
+            {{ $t("global.duration") }}: {{ detailMovie.runtime }} {{ $t("global.minutes") }}
+          </span>
+        </div>
+      </div>
+      <div class="w-1/2 z-10">
+        <nuxt-img :src="`/tmdb/w500/${detailMovie.poster_path}`" :alt="detailMovie.title" />
       </div>
     </div>
   </div>

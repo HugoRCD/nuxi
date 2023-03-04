@@ -18,7 +18,11 @@
     "watch_trailer": "Watch trailer",
     "add_to_watchlist": "Add to watchlist",
     "remove_from_watchlist": "Remove from watchlist",
-    "watchlist": "Watchlist"
+    "watchlist": "Watchlist",
+    "duration": "Duration",
+    "rating": "Rating",
+    "minutes": "minutes",
+    "release_date": "Release date"
   },
   "navigation": {
     "home": "Home",

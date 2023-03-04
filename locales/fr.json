@@ -18,7 +18,11 @@
     "watch_trailer": "Regarder la bande-annonce",
     "add_to_watchlist": "Ajouter à la liste de lecture",
     "remove_from_watchlist": "Supprimer de la liste de lecture",
-    "watchlist": "Liste de lecture"
+    "watchlist": "Liste de lecture",
+    "duration": "Durée",
+    "rating": "Note",
+    "minutes": "minutes",
+    "release_date": "Date de sortie"
   },
   "navigation": {
     "home": "Accueil",
