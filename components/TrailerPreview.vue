@@ -31,6 +31,7 @@ defineExpose({
       :src="`https://www.youtube.com/embed/${film.videos.results[0].key}`"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
     />
     <button class="glass-button flex items-center gap-2" @click="close">
       <XCircleIcon class="w-6 h-6 text-white" />

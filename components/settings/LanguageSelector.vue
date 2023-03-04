@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
 const { locale } = useI18n();
 import { useLocalStorage } from "@vueuse/core";
 
@@ -32,10 +31,6 @@ const setLocale = (newLocale: string) => {
   locale.value = newLocale;
   useLocalStorage("nuxi_locale", newLocale).value = newLocale;
 };
-
-const currentLocale = computed(() => {
-  return availableLocales.find((l) => l.iso === locale.value);
-});
 </script>
 
 <template>
