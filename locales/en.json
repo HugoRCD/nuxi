@@ -23,7 +23,8 @@
     "rating": "Rating",
     "minutes": "minutes",
     "release_date": "Release date",
-    "trailer": "Trailer"
+    "trailer": "Trailer",
+    "close_trailer": "Close trailer"
   },
   "navigation": {
     "home": "Home",

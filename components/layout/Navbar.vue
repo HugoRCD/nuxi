@@ -99,5 +99,16 @@ watch(search, searchHandler, { immediate: true });
         </div>
       </div>
     </nav>
+    <div class="relative flex-grow items-stretch focus-within:z-10 md:hidden px-4 py-2">
+      <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+        <MagnifyingGlassIcon class="w-4 h-4" />
+      </div>
+      <input
+        type="text"
+        class="bg-transparent block w-full border-0 py-1.5 pl-10 sm:text-sm focus:outline-none focus:ring-0 focus:border-0"
+        :placeholder="t('navigation.search') + '...'"
+        v-model="search"
+      />
+    </div>
   </header>
 </template>

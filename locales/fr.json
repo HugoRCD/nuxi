@@ -23,7 +23,8 @@
     "rating": "Note",
     "minutes": "minutes",
     "release_date": "Date de sortie",
-    "trailer": "Bande-annonce"
+    "trailer": "Bande-annonce",
+    "close_trailer": "Fermer la bande-annonce"
   },
   "navigation": {
     "home": "Accueil",
