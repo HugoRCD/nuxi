@@ -8,7 +8,7 @@ definePageMeta({
   middleware: ["auth"],
 });
 
-const { fetchTopRatedMovie, fetchPopularMovie, popularMovies } = useMovie();
+const { fetchTopRatedMovie, fetchPopularMovie } = useMovie();
 
 onMounted(() => {
   fetchTopRatedMovie();
@@ -18,6 +18,6 @@ onMounted(() => {
 
 <template>
   <div class="flex flex-col items-center justify-center gap-8">
-    <MainCarousel :films="popularMovies" :pending="false" />
+    <MainCarousel />
   </div>
 </template>

@@ -8,11 +8,13 @@ defineProps({
     required: true,
   },
 });
+
+const loading = computed(() => useGlobalStore().isLoading);
 </script>
 
 <template>
   <div>
-    <div class="relative w-full">
+    <div class="relative w-full" v-if="!loading">
       <nuxt-img :src="`/tmdb/original/${film.backdrop_path}`" :alt="film.title" />
       <div class="absolute inset-0 bg-gradient-to-t from-black opacity-70" />
       <div class="absolute transform -translate-y-1/2 top-1/2 p-4">
@@ -36,5 +38,6 @@ defineProps({
         </div>
       </div>
     </div>
+    <Loader v-else />
   </div>
 </template>

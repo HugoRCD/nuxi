@@ -1,27 +1,35 @@
 <script setup lang="ts">
 import BackdropCard from "~/components/Movie/BackdropCard.vue";
+import { FetchMovieResponse } from "~/types/movie";
+const globalStore = useGlobalStore();
+const config = useRuntimeConfig().public.tmdb;
+const apiKey = config.apiKey;
+const baseUrl = "https://api.themoviedb.org/3";
+const language = "fr-FR";
 
-const props = defineProps({
-  films: {
-    type: Array,
-    required: true,
+const { data, pending } = await useLazyAsyncData<FetchMovieResponse>(
+  async () => {
+    return await $fetch(`${baseUrl}/movie/popular?api_key=${apiKey}&language=${language}`);
   },
-});
-/// the goal is to create a carousel component, every 5 seconds, the carousel will change the movie, a transition will be applied to the carousel to make it look smooth and nice
+  {
+    watch: [],
+    immediate: true,
+  },
+);
 
-const currentFilm = ref(0);
+const currentMovie = ref(0);
 
-const nextFilm = () => {
-  if (currentFilm.value === props.films.length - 1) {
-    currentFilm.value = 0;
-  } else {
-    currentFilm.value++;
+const nextMovie = () => {
+  if (data.value) {
+    if (currentMovie.value === data.value.results.length - 1) {
+      currentMovie.value = 0;
+    } else {
+      currentMovie.value++;
+    }
   }
 };
 
-const interval = setInterval(() => {
-  nextFilm();
-}, 10000);
+const interval = setInterval(nextMovie, 8000);
 
 onBeforeUnmount(() => {
   clearInterval(interval);
@@ -29,7 +37,9 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <transition name="fade">
-    <BackdropCard :film="films[currentFilm]" />
-  </transition>
+  <div>
+    <div class="flex flex-col items-center justify-center gap-8">
+      <BackdropCard v-if="data" :film="data.results[currentMovie]" />
+    </div>
+  </div>
 </template>
