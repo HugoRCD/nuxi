@@ -36,6 +36,7 @@ export default defineNuxtConfig({
     private: {
       authSecret: process.env.AUTH_TOKEN_SECRET,
       authExpiration: process.env.AUTH_TOKEN_EXPIRATION,
+      apiKey: process.env.LINEAR_API_KEY,
     },
     public: {
       appDomain: process.env.APP_URL,

@@ -122,5 +122,21 @@
     "trending": "Films populaires cette semaine",
     "top_rated": "Films les mieux notés",
     "coming_soon": "Films à venir"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "description": "Un bug ? Une question ? Une suggestion ? N'hésitez pas à nous contacter",
+    "fullname": "Nom complet",
+    "email": "Email",
+    "phone": "Téléphone",
+    "ticket_type": "Type de requête",
+    "ticket_type_bug": "Signaler un bug",
+    "ticket_type_question": "Poser une question",
+    "ticket_type_suggestion": "Suggérer une amélioration",
+    "ticket_type_feature": "Demande de fonctionnalité",
+    "message": "Message",
+    "submit": "Envoyer",
+    "success": "Votre message au support a été envoyé avec succès",
+    "error": "Oups, une erreur s'est produite lors de l'envoi de votre message :("
   }
 }

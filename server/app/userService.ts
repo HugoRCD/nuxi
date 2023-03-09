@@ -1,4 +1,3 @@
-
 import prisma, { formatUser } from "~/server/database/client";
 import { createUserInput, updateUserInput } from "~/types/user";
 import bcrypt from "bcrypt";
@@ -82,7 +81,10 @@ export async function getUserByLogin(login: string) {
   return user;
 }
 
-export async function updateUser(userId: number, updateUserInput: updateUserInput) {
+export async function updateUser(
+  userId: number,
+  updateUserInput: updateUserInput
+) {
   const foundUser = await prisma.user.findFirst({
     where: {
       OR: [
@@ -113,4 +115,11 @@ export async function deleteUser(userId: number) {
     where: { id: userId },
   });
   return formatUser(user);
+}
+
+export async function getAllUsers() {
+  const users = await prisma.user.findMany();
+  return users.map((user) => {
+    return formatUser(user);
+  });
 }

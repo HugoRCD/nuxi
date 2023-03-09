@@ -23,6 +23,7 @@
     "schema": "server/database/schema.prisma"
   },
   "devDependencies": {
+    "@linear/sdk": "^2.1.0",
     "@headlessui/vue": "^1.7.7",
     "@heroicons/vue": "^2.0.13",
     "@nuxt/image-edge": "1.0.0-27840416.dc1ed65",

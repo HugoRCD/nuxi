@@ -44,6 +44,13 @@ async function logout() {
           class="block px-4 py-2 text-sm text-primary hover:bg-accent-faded hover:text-accent"
           >{{ $t("navigation." + item.name.toLowerCase()) }}
         </NuxtLink>
+        <NuxtLink
+          v-if="Role.ADMIN"
+          to="/admin/dashboard"
+          class="block px-4 py-2 text-sm text-primary hover:bg-accent-faded hover:text-accent"
+        >
+          Admin
+        </NuxtLink>
         <hr class="my-1 border-primary" />
         <div
           class="block px-4 py-2 text-sm text-gray-400 hover:bg-red-700 hover:text-white cursor-pointer"

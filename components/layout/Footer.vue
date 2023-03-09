@@ -1,14 +1,16 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <footer class="bg-primary">
     <div class="mx-auto max-w-7xl overflow-hidden py-10 px-6 lg:px-8">
       <hr class="mt-10 border-t-2 border-muted rounded-lg" />
+      <NuxtLink to="/contact" class="text-sm flex items-center font-bold mt-4 justify-center text-white">
+        Contact
+      </NuxtLink>
       <div class="mt-10 flex flex-col justify-center items-center space-y-4">
         <nuxt-img class="w-auto h-6" :src="'/supabase/assets/maison-hochard-logo'" />
         <span class="text-muted text-sm"
-        >© 2023
+          >© 2023
           <NuxtLink
             target="_blank"
             to="https://www.maisonhochard.com"

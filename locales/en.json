@@ -123,5 +123,21 @@
     "trending": "Films trending this week",
     "top_rated": "Top rated films",
     "coming_soon": "Films coming soon"
+  },
+  "contact": {
+    "title": "Contact us",
+    "description": "A bug? A question? A suggestion? We are here to help you.",
+    "fullname": "Fullname",
+    "email": "Email",
+    "phone": "Phone",
+    "ticket_type": "Request type",
+    "ticket_type_bug": "Report a bug",
+    "ticket_type_question": "Ask a question",
+    "ticket_type_suggestion": "Propose a suggestion",
+    "ticket_type_feature": "Request a feature",
+    "message": "Message",
+    "submit": "Send",
+    "success": "Your message to the team has been sent successfully",
+    "error": "Oups, an error occurred while sending your message"
   }
 }
