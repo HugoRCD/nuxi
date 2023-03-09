@@ -36,10 +36,10 @@ function getRating(rating: number) {
   <div class="movie grow relative group">
     <NuxtLink :to="`/movie/${film.id}`">
       <nuxt-img
+        quality="50"
         :src="`/tmdb/original/${film.poster_path}`"
         :alt="film.title"
         class="rounded-xl shadow-lg cursor-pointer group-hover:opacity-50 transition-opacity duration-300 ease-in-out"
-        preview-disabled
       />
     </NuxtLink>
     <div
