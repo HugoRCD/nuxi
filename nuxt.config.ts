@@ -9,6 +9,8 @@ export default defineNuxtConfig({
     },
   },
 
+  ssr: false,
+
   css: ["~/assets/style/main.scss"],
 
   build: {
