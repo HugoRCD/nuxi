@@ -27,7 +27,7 @@ async function signup() {
       username: username.value,
       email: email.value,
       password: password.value,
-    }
+    },
   });
   if (data.value) {
     useSuccessToast(t("signup.signup_success"));
@@ -42,7 +42,7 @@ async function signup() {
 </script>
 
 <template>
-  <div class="flex flex-col justify-center py-40 px-6 lg:px-8">
+  <div class="flex min-h-full flex-col justify-center py-12 px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
       <Logo :isText="false" class="flex justify-center" :size="12" />
       <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-primary">
@@ -50,7 +50,8 @@ async function signup() {
       </h2>
     </div>
     <div class="sm:mx-auto sm:w-full sm:max-w-md mt-12">
-      <form class="space-y-3" @submit.prevent="signup">
+      <Loader v-if="loading" />
+      <form class="space-y-4" @submit.prevent="signup" v-else>
         <input
           id="username"
           name="username"
@@ -99,10 +100,12 @@ async function signup() {
           :class="disabled ? 'opacity-50 cursor-not-allowed' : ''"
         />
       </form>
-      <NuxtLink :to="{ name: 'Login' }" class="btn-secondary mt-6">
+      <NuxtLink :to="{ name: 'Login' }" class="btn-secondary w-full mt-6">
         {{ $t("signup.already_have_an_account") }}
       </NuxtLink>
     </div>
-    <LanguageSelector :is-text="true" class="mt-6" />
+    <div class="sm:mx-auto sm:w-full sm:max-w-md flex flex-col justify-center items-center">
+      <LanguageSelector :is-text="true" class="mt-6" />
+    </div>
   </div>
 </template>

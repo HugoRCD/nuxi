@@ -41,7 +41,7 @@ async function signin() {
 </script>
 
 <template>
-  <div class="flex flex-col justify-center py-40 px-6 lg:px-8">
+  <div class="flex min-h-full flex-col justify-center py-12 px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
       <Logo :isText="false" class="flex justify-center" :size="12" />
       <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-primary">
@@ -75,17 +75,19 @@ async function signin() {
         </div>
         <div class="flex items-center justify-end">
           <div class="text-sm">
-            <NuxtLink to="/password/forgot" class="font-medium text-accent hover:text-accent-hover">
-              {{ $t("login.forgot_password") }}
+            <NuxtLink to="/password/forgot" class="font-medium text-accent hover:text-accent-hover"
+              >{{ $t("login.forgot_password") }}
             </NuxtLink>
           </div>
         </div>
         <ButtonPrimary :full-width="true" :pending="loading" :text="$t('login.signin')" type="submit" />
       </form>
       <NuxtLink to="/auth/signup" class="btn-secondary w-full mt-6">
-        {{$t("login.dont_have_an_account") }}
+        {{ $t("login.dont_have_an_account") }}
       </NuxtLink>
     </div>
-    <LanguageSelector :is-text="true" class="mt-6" />
+    <div class="sm:mx-auto sm:w-full sm:max-w-md flex flex-col justify-center items-center">
+      <LanguageSelector :is-text="true" class="mt-6" />
+    </div>
   </div>
 </template>

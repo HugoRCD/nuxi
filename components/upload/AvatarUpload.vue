@@ -22,7 +22,7 @@ async function uploadAvatar() {
     <label class="block text-sm font-medium text-muted">{{ $t("profile.avatar") }}</label>
     <div class="mt-1 flex items-center space-x-5">
       <span class="inline-block h-12 w-12 overflow-hidden rounded-full bg-gray-100">
-        <img :src="user.avatar" alt="" />
+        <Avatar :user="user" />
       </span>
       <div>
         <label

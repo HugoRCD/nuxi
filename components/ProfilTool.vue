@@ -8,12 +8,9 @@ const userStore = useUserStore();
 const user = userStore.getUser;
 
 async function logout() {
-  const { data } = await useFetch("/api/auth/logout", {
+  await useFetch("/api/auth/logout", {
     method: "POST",
   });
-  if (data.value) {
-    console.log(data.value);
-  }
   useSuccessToast(t("profile.logout"));
   userStore.logout();
   useRouter().push("/auth/login");
@@ -23,17 +20,9 @@ async function logout() {
 <template>
   <Menu as="div" class="relative ml-3">
     <div>
-      <MenuButton
-        class="flex rounded-full bg-gray-800 text-sm focus:outline-none"
-      >
+      <MenuButton class="flex rounded-full bg-gray-800 text-sm focus:outline-none">
         <span class="sr-only">Open user menu</span>
-        <nuxt-img
-          preload
-          class="h-10 w-10 rounded-full object-cover"
-          :src="user.avatar"
-          sizes="sm:100vw md:50vw lg:400px"
-          :alt="user.username"
-        />
+        <Avatar :user="user" />
       </MenuButton>
     </div>
     <transition
@@ -53,7 +42,7 @@ async function logout() {
           :to="item.to"
           :id="item.name.toLowerCase()"
           class="block px-4 py-2 text-sm text-primary hover:bg-accent-faded hover:text-accent"
-        >{{ $t("navigation." + item.name.toLowerCase()) }}
+          >{{ $t("navigation." + item.name.toLowerCase()) }}
         </NuxtLink>
         <hr class="my-1 border-primary" />
         <div
