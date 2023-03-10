@@ -41,6 +41,14 @@ features to facilitate development and management of the application but you
 will need to develop your own commands. the console in the boilerplate
 is just an example of what you can do with it.
 
+## Contact
+
+The contact page is connect with a linear team to track ticket
+
+## Mailer
+
+A Nodemailer is connected to send every kind of mail (forgot-password, new-user, etc...)
+
 ## Getting Started
 
 ### Clone the repository:
