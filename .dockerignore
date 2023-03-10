@@ -1,7 +1,7 @@
 .git
 node_modules
 Dockerfile
-.prettierrc
+pnpm-lock.yaml
 .gitignore
 .eslintrc.json
 README.md
