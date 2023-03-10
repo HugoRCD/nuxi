@@ -45,7 +45,7 @@ is just an example of what you can do with it.
 
 ### Clone the repository:
 ```
-git clone git@github.com:hugoRCD/nuxt3-boilerplate.git
+git clone git@github.com:hugoRCD/nuxi
 ```
 
 ### Install dependencies:
@@ -67,7 +67,7 @@ Now you can open the app in your browser at http://localhost:3000 if you do not 
 retype watch
 ```
 
-You can access the live documentation at https://hugorcd.github.io/nuxtjs-boilerplate/
+You can access the live documentation at https://hugorcd.github.io/nuxi/
 
 ## Built With
 
