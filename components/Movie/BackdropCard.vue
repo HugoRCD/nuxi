@@ -15,7 +15,7 @@ const loading = computed(() => useGlobalStore().isLoading);
 </script>
 
 <template>
-  <div>
+  <div class="w-full">
     <div class="relative w-full" v-if="!loading">
       <nuxt-img :src="`/tmdb/original/${film.backdrop_path}`" :alt="film.title" quality="50" />
       <div class="absolute inset-0 bg-gradient-to-t from-black opacity-100" />
