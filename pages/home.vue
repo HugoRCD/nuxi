@@ -7,7 +7,6 @@ definePageMeta({
   name: "Home",
   title: "Home",
   path: "/",
-  middleware: ["auth"],
 });
 
 const { fetchTopRatedMovie, fetchPopularMovie, fetchComingSoonMovie, topRatedMovies, popularMovies, comingSoonMovies } =
