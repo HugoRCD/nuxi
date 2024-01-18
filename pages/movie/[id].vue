@@ -4,7 +4,6 @@ definePageMeta({
   name: "Movie",
   title: "Movie",
   path: "/movie/:id",
-  middleware: ["auth"],
   layout: "detail",
 });
 const { fetchMovie, detailMovie } = useMovie();
